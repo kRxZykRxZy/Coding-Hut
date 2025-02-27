@@ -1,75 +1,177 @@
 /* Navigation bar styling */
 .nav-bar {
   display: flex; /* Aligns buttons horizontally */
-  justify-content: center; /* Centers them, optional */
-  gap: 2px; /* Space between buttons */
-  top: 0px;
-  left: 0px;
+  justify-content: center; /* Centers them */
+  gap: 10px; /* Space between buttons */
+  padding: 10px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #222; /* Dark background for nav */
+  z-index: 10; /* Ensure it stays on top */
 }
 
 .nav-bar button {
-  display: inline-block; /* Prevents full-width behavior */
-  width: 20vw; /* Only as wide as needed */
-  max-width: 20vw; /* Snug around text */
-  padding: 5px 23px; /* Controls button size */
-  font-size: 20px; /* Text size */
+  display: inline-block;
+  padding: 10px 30px; /* Controls button size */
+  font-size: 18px; /* Text size */
   color: #f2f2f2; /* Text color */
   background-color: #333; /* Button background */
-  border: 1px solid #444; /* Optional border */
-  border-radius: 1px; /* Optional: rounded corners */
+  border: none; /* Remove default border */
+  border-radius: 8px; /* Rounded corners */
   cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
   box-sizing: border-box; /* Ensures padding doesn’t add to width */
-  left: 0px;
-  top: 0px;
 }
 
-button:hover {
-  background-color: #0056b3;
+.nav-bar button:hover {
+  background-color: #0056b3; /* Hover effect */
+  transform: scale(1.05); /* Slight grow effect on hover */
 }
 
 /* General body styling */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 50px;
+  margin-top: 60px;
+  background-color: #f4f4f4; /* Light background for body */
+  color: #333;
 }
 
 /* Heading styling */
 h2 {
+  font-size: 28px;
   margin-bottom: 20px;
+  color: #222; /* Darker heading */
 }
 
 /* Form styling */
 form {
   display: flex;
   flex-direction: column;
-  width: 300px;
+  width: 100%;
+  max-width: 400px; /* Prevents form from being too wide */
+  margin-top: 30px;
 }
 
 label {
+  font-size: 16px;
   margin-bottom: 5px;
+  color: #555;
 }
 
 input {
   margin-bottom: 15px;
-  padding: 8px;
-  font-size: 14px;
+  padding: 12px;
+  font-size: 16px;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 6px;
+  background-color: #fff;
+  color: #333;
+  transition: border-color 0.3s ease;
+}
+
+input:focus {
+  border-color: #007BFF; /* Focus effect */
+  outline: none;
 }
 
 button {
-  padding: 10px;
-  font-size: 16px;
-  background-color: #007BFF;
+  padding: 12px;
+  font-size: 18px;
+  background-color: #007BFF; /* Primary button color */
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
   cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #0056b3; /* Darker blue on hover */
+  transform: scale(1.05); /* Slight grow effect on hover */
+}
+
+button:active {
+  transform: scale(0.98); /* Shrink effect when clicked */
+}
+
+/* Legacy Mode for older browsers */
+@supports not (transform: scale(1)) {
+  .nav-bar button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    box-shadow: none; /* Remove shadow for older browsers */
+    transition: none; /* Remove transition effects */
+  }
+
+  .nav-bar button:hover {
+    background-color: #0056b3; /* Simple hover effect */
+    transform: none; /* Remove scale transform */
+  }
+
+  button {
+    padding: 10px;
+    font-size: 16px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: none; /* Remove transition effects */
+  }
+
+  button:hover {
+    background-color: #0056b3;
+    transform: none; /* Remove scale effect */
+  }
+
+  input {
+    margin-bottom: 15px;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  input:focus {
+    border-color: #007BFF;
+  }
+
+  body {
+    margin-top: 40px;
+  }
+}
+
+/* Fallback for older browsers without supports query */
+body {
+  font-family: 'Arial', sans-serif;
+}
+
+.nav-bar {
+  display: block; /* Stack buttons vertically */
+  align-items: center;
+}
+
+.nav-bar button {
+  width: auto;
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: #333;
+  color: #fff;
+  margin: 5px 0;
+}
+
+button {
+  font-size: 14px;
+  padding: 8px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 4px;
 }
