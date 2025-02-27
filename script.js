@@ -34,7 +34,7 @@ document.getElementById('loginForm')?.addEventListener('submit', function(e) {
   console.log('Logging in with:', { email, password });
 
   alert('Login successful!');
-  window.location.href = 'Coding-Hut/index.html'; // Example redirect
+  window.location.href = '/index.html'; // Example redirect
 });
 
 // Signup form handling
@@ -53,5 +53,5 @@ document.getElementById('signupForm')?.addEventListener('submit', function(e) {
   console.log('Signing up with:', { username, email, password });
 
   alert('Signup successful!');
-  window.location.href = 'Coding-Hut/index.html'; // Example redirect
+  window.location.href = '/index.html'; // Example redirect
 });
