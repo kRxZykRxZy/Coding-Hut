@@ -9,8 +9,8 @@
 
 .nav-bar button {
   display: inline-block; /* Prevents full-width behavior */
-  width: 100vw; /* Only as wide as needed */
-  max-width: 100vw; /* Snug around text */
+  width: 20vw; /* Only as wide as needed */
+  max-width: 20vw; /* Snug around text */
   padding: 8px 12px; /* Controls button size */
   font-size: 20px; /* Text size */
   color: #f2f2f2; /* Text color */
