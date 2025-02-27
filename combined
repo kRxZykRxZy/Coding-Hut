@@ -16,6 +16,7 @@
       --input-border: #ccc;
       --button-bg: #007bff;
       --button-hover: #0056b3;
+      --font-size: 16px;
     }
 
     body {
@@ -25,6 +26,7 @@
       text-align: center;
       background-color: var(--bg-color);
       color: var(--text-color);
+      font-size: var(--font-size);
       transition: background-color 0.3s, color 0.3s;
     }
 
@@ -136,52 +138,66 @@
       color: white;
     }
 
-    /* Switch Styles */
-    .switch {
-      position: relative;
-      display: inline-block;
-      width: 34px;
-      height: 20px;
-    }
-
-    .switch input {
-      opacity: 0;
-      width: 0;
-      height: 0;
-    }
-
-    .slider {
-      position: absolute;
-      cursor: pointer;
+    /* Tutorial Modal */
+    .tutorial-modal {
+      display: none;
+      position: fixed;
       top: 0;
       left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: #ccc;
-      transition: 0.4s;
-      border-radius: 34px;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
     }
 
-    .slider:before {
+    .tutorial-content {
+      background-color: #333;
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 500px;
+    }
+
+    .tutorial-step {
+      margin: 10px 0;
+    }
+
+    .tutorial-button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    .tutorial-button:hover {
+      background-color: #45a049;
+    }
+
+    /* Notification */
+    .notification {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #4CAF50;
+      color: white;
+      padding: 15px;
+      border-radius: 5px;
+      display: none;
+    }
+
+    .tutorial-overlay {
       position: absolute;
-      content: "";
-      height: 12px;
-      width: 12px;
-      border-radius: 50%;
-      left: 4px;
-      bottom: 4px;
-      background-color: white;
-      transition: 0.4s;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.2);
+      top: 0;
+      left: 0;
     }
-
-    input:checked + .slider {
-      background-color: #2196F3;
-    }
-
-    input:checked + .slider:before {
-      transform: translateX(14px);
-    }
-
   </style>
 </head>
 <body>
@@ -195,6 +211,17 @@
   </div>
 
   <div id="home" class="section"> <h1>Welcome to Coding Hut</h1> </div>
+
+  <div id="ordering" class="section" style="display:none;">
+    <h2>Place an Order</h2>
+    <form id="orderForm">
+      <label for="order-item">Item:</label>
+      <input type="text" id="order-item" name="item" required>
+      <label for="order-quantity">Quantity:</label>
+      <input type="number" id="order-quantity" name="quantity" required>
+      <button type="submit">Place Order</button>
+    </form>
+  </div>
 
   <div id="login" class="section" style="display:none;">
     <h2>Login</h2>
@@ -220,6 +247,21 @@
     </form>
   </div>
 
+  <!-- Notification -->
+  <div id="notification" class="notification">Notifications turned on successfully!</div>
+
+  <!-- Tutorial Modal -->
+  <div id="tutorial-modal" class="tutorial-modal">
+    <div class="tutorial-content">
+      <div class="tutorial-overlay"></div>
+      <h2>Welcome to the Coding Hut Tutorial!</h2>
+      <div class="tutorial-step">1. To place an order, go to the "Ordering" section.</div>
+      <div class="tutorial-step">2. In the "Ordering" section, enter the item and quantity, then click "Place Order".</div>
+      <div class="tutorial-step">3. You can navigate to different sections using the menu at the top.</div>
+      <button class="tutorial-button" onclick="finishTutorial()">Finish Tutorial</button>
+    </div>
+  </div>
+
   <!-- Settings Modal -->
   <div id="settings-modal" class="settings-modal">
     <div class="settings-modal-content">
@@ -234,17 +276,16 @@
       <div>
         <label for="notification-toggle">Enable Notifications</label>
         <label class="switch">
-          <input type="checkbox" id="notification-toggle">
+          <input type="checkbox" id="notification-toggle" onchange="toggleNotifications()">
           <span class="slider"></span>
         </label>
       </div>
-      <div>
-        <button onclick="closeSettings()">Close</button>
-      </div>
+      <button onclick="closeSettings()">Close</button>
     </div>
   </div>
 
   <script>
+    // Show sections based on navigation
     function showSection(sectionId) {
       document.querySelectorAll('.section').forEach(section => {
         section.style.display = 'none';
@@ -252,18 +293,57 @@
       document.getElementById(sectionId).style.display = 'block';
     }
 
+    // Tutorial functions
+    function finishTutorial() {
+      document.getElementById('tutorial-modal').style.display = 'none';
+      localStorage.setItem('tutorialCompleted', 'true');
+    }
+
+    // Check if tutorial should be shown
+    function checkTutorial() {
+      if (!localStorage.getItem('tutorialCompleted')) {
+        document.getElementById('tutorial-modal').style.display = 'flex';
+      }
+    }
+
+    // Dark mode toggle
     function toggleDarkMode() {
       document.body.classList.toggle('dark-mode');
       const darkModeToggle = document.getElementById('dark-mode-toggle');
       darkModeToggle.checked = document.body.classList.contains('dark-mode');
     }
 
+    // Notification toggle
+    function toggleNotifications() {
+      const notificationToggle = document.getElementById('notification-toggle');
+      if (notificationToggle.checked) {
+        showNotification('Notifications turned on successfully!');
+      }
+    }
+
+    // Show notification
+    function showNotification(message) {
+      const notification = document.getElementById('notification');
+      notification.textContent = message;
+      notification.style.display = 'block';
+      setTimeout(() => {
+        notification.style.display = 'none';
+      }, 3000);
+    }
+
+    // Show settings modal
     function openSettings() {
       document.getElementById('settings-modal').style.display = 'flex';
     }
 
+    // Close settings modal
     function closeSettings() {
       document.getElementById('settings-modal').style.display = 'none';
+    }
+
+    // Initialize tutorial on page load
+    window.onload = function() {
+      checkTutorial();
     }
   </script>
 </body>
