@@ -2,11 +2,14 @@
 .nav-bar {
   display: inline-block;
   text-align: center;
-  padding: 14px;
+  padding: 5px 10px; /* Smaller padding makes the button smaller */
   color: #f2f2f2;
   text-decoration: none;
-  font-size: 17px;
+  font-size: 14px; /* Optional: adjust if needed */
+  line-height: 1; /* Keeps the button height closer to the text height */
+  border: 1px solid transparent; /* Add only if you want a border */
 }
+
 
 /* Button styling */
 button {
