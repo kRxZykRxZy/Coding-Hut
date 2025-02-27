@@ -1,4 +1,5 @@
 // Functions for redirecting to different pages
+
 function goToPage1() {
   window.location.href = 'Coding-Hut/index.html';
 }
