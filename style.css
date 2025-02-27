@@ -3,6 +3,7 @@
   display: flex; /* Aligns buttons horizontally */
   justify-content: center; /* Centers them, optional */
   gap: 7px; /* Space between buttons */
+  top: 0;
 }
 
 .nav-bar button {
