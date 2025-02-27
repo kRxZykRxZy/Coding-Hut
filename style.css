@@ -10,28 +10,6 @@
   border: 1px solid transparent; /* Add only if you want a border */
 }
 
-
-/* Button styling */
-button {
-  top: 0;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  border: none;
-  background-color: #007BFF;
-  color: white;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-  width: 100vw; /* 100% of the viewport width */
-  height: 100vh; /* 100% of the viewport height */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white; /* Optional: Button text color */
-  border: none; /* Optional: Remove border */
-  cursor: pointer;
-}
-
 button:hover {
   background-color: #0056b3;
 }
