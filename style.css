@@ -1,14 +1,22 @@
 /* Navigation bar styling */
 .nav-bar {
-  display: inline-block;
-  text-align: center;
-  padding: 5px 10px; /* Smaller padding makes the button smaller */
+  display: inline-block; /* Ensures buttons only take as much space as needed */
+  width: auto; /* Prevents full-width stretching */
+  max-width: fit-content; /* Keeps button size snug around text */
+  padding: 8px 12px; /* Adjust padding for button size */
   color: #f2f2f2;
   text-decoration: none;
-  font-size: 14px; /* Optional: adjust if needed */
-  line-height: 1; /* Keeps the button height closer to the text height */
-  border: 1px solid transparent; /* Add only if you want a border */
+  font-size: 14px;
+  box-sizing: border-box; /* Ensures padding doesn’t affect width */
 }
+
+.nav-container {
+  display: flex; /* Or inline-flex to avoid wrapping */
+  justify-content: start; /* Or center if you want them centered */
+  align-items: center;
+  gap: 10px; /* Adds space between buttons */
+}
+
 
 button:hover {
   background-color: #0056b3;
