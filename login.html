@@ -15,17 +15,15 @@
     <button onclick="goToPage4()">Login</button>
     <button onclick="goToPage5()">Signup</button>
   </div>
+<form id="loginForm">
+  <label for="login-email">Email:</label>
+  <input type="email" id="login-email" name="email" required>
 
-  <form id="loginForm">
-    <label for="login-email">Email:</label>
-    <input type="email" id="login-email" name="email" required>
+  <label for="login-password">Password:</label>
+  <input type="password" id="login-password" name="password" required>
 
-    <label for="login-password">Password:</label>
-    <input type="password" id="login-password" name="password" required>
-
-    <button type="submit">Login</button>
-  </form>
-
+  <button type="submit">Login</button>
+</form>
   <script src="script.js"></script>
 </body>
 </html>
