@@ -1,22 +1,23 @@
 /* Navigation bar styling */
 .nav-bar {
-  display: inline-block; /* Ensures buttons only take as much space as needed */
-  width: auto; /* Prevents full-width stretching */
-  max-width: fit-content; /* Keeps button size snug around text */
-  padding: 8px 12px; /* Adjust padding for button size */
-  color: #f2f2f2;
-  text-decoration: none;
-  font-size: 14px;
-  box-sizing: border-box; /* Ensures padding doesn’t affect width */
+  display: flex; /* Aligns buttons horizontally */
+  justify-content: center; /* Centers them, optional */
+  gap: 10px; /* Space between buttons */
 }
 
-.nav-container {
-  display: flex; /* Or inline-flex to avoid wrapping */
-  justify-content: start; /* Or center if you want them centered */
-  align-items: center;
-  gap: 10px; /* Adds space between buttons */
+.nav-bar button {
+  display: inline-block; /* Prevents full-width behavior */
+  width: auto; /* Only as wide as needed */
+  max-width: fit-content; /* Snug around text */
+  padding: 8px 12px; /* Controls button size */
+  font-size: 14px; /* Text size */
+  color: #f2f2f2; /* Text color */
+  background-color: #333; /* Button background */
+  border: 1px solid #444; /* Optional border */
+  border-radius: 5px; /* Optional: rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  box-sizing: border-box; /* Ensures padding doesn’t add to width */
 }
-
 
 button:hover {
   background-color: #0056b3;
