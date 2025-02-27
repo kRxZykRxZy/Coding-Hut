@@ -3,4 +3,31 @@
 <head>
 <link rel="stylesheet" href="styles.css">
 </head>
+<body>
+<button class="tablink" onclick="openPage('Home', this, 'red')">Home</button>
+<button class="tablink" onclick="openPage('News', this, 'red')" id="defaultOpen">something</button>
+<button class="tablink" onclick="openPage('Contact', this, 'red')">something</button>
+<button class="tablink" onclick="openPage('About', this, 'red')">something</button>
+
+<div id="Home" class="tabcontent">
+  <h3>Home</h3>
+  <p>Home is where the heart is..</p>
+</div>
+
+<div id="News" class="tabcontent">
+  <h3>something</h3>
+  <p>.......</p>
+</div>
+
+<div id="Contact" class="tabcontent">
+  <h3>something</h3>
+  <p>.............</p>
+</div>
+
+<div id="About" class="tabcontent">
+  <h3>About</h3>
+  <p>Who we are and what we do.</p>
+  </div>
+<script src="script.js"></script>
+</body>
 </html>
