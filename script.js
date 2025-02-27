@@ -1,23 +1,20 @@
-function openPage(pageName, elmnt, color) {
-  // Hide all elements with class="tabcontent" by default */
-  var i, tabcontent, tablinks;
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
-
-  // Remove the background color of all tablinks/buttons
-  tablinks = document.getElementsByClassName("tablink");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].style.backgroundColor = "";
-  }
-
-  // Show the specific tab content
-  document.getElementById(pageName).style.display = "block";
-
-  // Add the specific color to the button used to open the tab content
-  elmnt.style.backgroundColor = color;
+// Functions for redirecting to different pages
+function goToPage1() {
+  window.location.href = '/index.html';
 }
 
-// Get the element with id="defaultOpen" and click on it
-document.getElementById("defaultOpen").click();
+function goToPage2() {
+  window.location.href = '/ordering.html';
+}
+
+function goToPage3() {
+  window.location.href = '/rules.html';
+}
+
+function goToPage4() {
+  window.location.href = '/login.html';
+}
+
+function goToPage5() {
+  window.location.href = '/signup.html';
+}
