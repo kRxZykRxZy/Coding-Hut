@@ -3,7 +3,8 @@
   display: flex; /* Aligns buttons horizontally */
   justify-content: center; /* Centers them, optional */
   gap: 7px; /* Space between buttons */
-  top: 0;
+  top: 0px;
+  left: 0px;
 }
 
 .nav-bar button {
@@ -11,14 +12,15 @@
   width: auto; /* Only as wide as needed */
   max-width: fit-content; /* Snug around text */
   padding: 8px 12px; /* Controls button size */
-  font-size: 14px; /* Text size */
+  font-size: 20px; /* Text size */
   color: #f2f2f2; /* Text color */
   background-color: #333; /* Button background */
   border: 1px solid #444; /* Optional border */
   border-radius: 5px; /* Optional: rounded corners */
   cursor: pointer; /* Pointer cursor on hover */
   box-sizing: border-box; /* Ensures padding doesn’t add to width */
-  top: 0;
+  left: 0px;
+  top: 0px;
 }
 
 button:hover {
