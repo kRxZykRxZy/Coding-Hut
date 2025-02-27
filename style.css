@@ -2,7 +2,7 @@
 .nav-bar {
   display: flex; /* Aligns buttons horizontally */
   justify-content: center; /* Centers them, optional */
-  gap: 10px; /* Space between buttons */
+  gap: 7px; /* Space between buttons */
 }
 
 .nav-bar button {
@@ -17,6 +17,7 @@
   border-radius: 5px; /* Optional: rounded corners */
   cursor: pointer; /* Pointer cursor on hover */
   box-sizing: border-box; /* Ensures padding doesn’t add to width */
+  top: 0;
 }
 
 button:hover {
