@@ -16,6 +16,14 @@ button {
   color: white;
   border-radius: 5px;
   transition: background-color 0.3s ease;
+  width: 100vw; /* 100% of the viewport width */
+  height: 100vh; /* 100% of the viewport height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white; /* Optional: Button text color */
+  border: none; /* Optional: Remove border */
+  cursor: pointer;
 }
 
 button:hover {
