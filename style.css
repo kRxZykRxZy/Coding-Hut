@@ -2,7 +2,7 @@
 .nav-bar {
   display: flex; /* Aligns buttons horizontally */
   justify-content: center; /* Centers them, optional */
-  gap: 0px; /* Space between buttons */
+  gap: 2px; /* Space between buttons */
   top: 0px;
   left: 0px;
 }
@@ -11,7 +11,7 @@
   display: inline-block; /* Prevents full-width behavior */
   width: 20vw; /* Only as wide as needed */
   max-width: 20vw; /* Snug around text */
-  padding: 0px 0px; /* Controls button size */
+  padding: 5px 23px; /* Controls button size */
   font-size: 20px; /* Text size */
   color: #f2f2f2; /* Text color */
   background-color: #333; /* Button background */
