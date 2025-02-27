@@ -1,32 +1,21 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Button Navigation</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<button class="tablink" onclick="openPage('Home', this, 'red')">Home</button>
-<button class="tablink" onclick="openPage('News', this, 'red')" id="defaultOpen">something</button>
-<button class="tablink" onclick="openPage('Contact', this, 'red')">something</button>
-<button class="tablink" onclick="openPage('About', this, 'red')">something</button>
 
-<div id="Home" class="tabcontent">
-  <h3>Home</h3>
-  <p>Home is where the heart is..</p>
-</div>
-
-<div id="News" class="tabcontent">
-  <a href="/Coding-Hut/ordering" 
-</div>
-
-<div id="Contact" class="tabcontent">
-  <h3>something</h3>
-  <p>.............</p>
-</div>
-
-<div id="About" class="tabcontent">
-  <h3>About</h3>
-  <p>Who we are and what we do.</p>
+  <div class="nav-bar">
+    <button onclick="goToPage1()">Home</button>
+    <button onclick="goToPage2()">Ordering</button>
+    <button onclick="goToPage3()">Rules</button>
+    <button onclick="goToPage4()">Login</button>
+    <button onclick="goToPage5()">Signup</button>
   </div>
-<script src="script.js"></script>
+
+  <script src="script.js"></script>
 </body>
 </html>
