@@ -3,10 +3,7 @@
   display: flex;
   justify-content: space-around;
   background-color: #f1f1f1;
-  padding: 10px;
-  top: 0;
-  width: 100px; /* Controls the tab's width */
-  height: 40px; /* Controls the tab's height */
+  padding: 0px;
 }
 
 /* Button styling */
