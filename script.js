@@ -1,22 +1,22 @@
 // Functions for redirecting to different pages
 function goToPage1() {
-  window.location.href = '/index.html';
+  window.location.href = '/Coding-Hut/index.html';
 }
 
 function goToPage2() {
-  window.location.href = '/ordering.html';
+  window.location.href = '/Coding-Hut/ordering.html';
 }
 
 function goToPage3() {
-  window.location.href = '/rules.html';
+  window.location.href = '/Coding-Hut/rules.html';
 }
 
 function goToPage4() {
-  window.location.href = '/login.html';
+  window.location.href = '/Coding-Hut/login.html';
 }
 
 function goToPage5() {
-  window.location.href = '/signup.html';
+  window.location.href = '/Coding-Hut/signup.html';
 }
 
 // Login form handling
@@ -34,7 +34,7 @@ document.getElementById('loginForm')?.addEventListener('submit', function(e) {
   console.log('Logging in with:', { email, password });
 
   alert('Login successful!');
-  window.location.href = 'index.html'; // Example redirect
+  window.location.href = 'Coding-Hut/index.html'; // Example redirect
 });
 
 // Signup form handling
@@ -53,5 +53,5 @@ document.getElementById('signupForm')?.addEventListener('submit', function(e) {
   console.log('Signing up with:', { username, email, password });
 
   alert('Signup successful!');
-  window.location.href = 'index.html'; // Example redirect
+  window.location.href = 'Coding-Hut/index.html'; // Example redirect
 });
