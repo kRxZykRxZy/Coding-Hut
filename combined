@@ -8,30 +8,46 @@
   <style>
     :root {
       --bg-color: #ffffff;
-      --text-color: #000000;
-      --nav-bg: #222;
+      --text-color: #333;
+      --nav-bg: #333;
       --nav-text: #ffffff;
-      --nav-hover: #444;
-      --input-bg: #f0f0f0;
-      --input-border: #999;
+      --nav-hover: #555;
+      --input-bg: #f9f9f9;
+      --input-border: #ccc;
       --button-bg: #28a745;
       --button-hover: #218838;
       --notification-btn-bg: #007bff;
       --notification-btn-hover: #0056b3;
+      --border-radius: 8px;
+      --transition-speed: 0.3s;
     }
 
     .dark-mode {
       --bg-color: #121212;
       --text-color: #ffffff;
-      --nav-bg: #111;
+      --nav-bg: #1f1f1f;
       --nav-text: #ffffff;
-      --nav-hover: #333;
+      --nav-hover: #444;
       --input-bg: #222;
       --input-border: #555;
       --button-bg: #1c7430;
       --button-hover: #145a24;
       --notification-btn-bg: #0056b3;
       --notification-btn-hover: #003d7a;
+    }
+
+    .custom-theme {
+      --bg-color: #f0f8ff;
+      --text-color: #2c3e50;
+      --nav-bg: #3498db;
+      --nav-text: #ffffff;
+      --nav-hover: #2980b9;
+      --input-bg: #ecf0f1;
+      --input-border: #bdc3c7;
+      --button-bg: #e74c3c;
+      --button-hover: #c0392b;
+      --notification-btn-bg: #9b59b6;
+      --notification-btn-hover: #8e44ad;
     }
 
     body {
@@ -41,26 +57,27 @@
       text-align: center;
       background-color: var(--bg-color);
       color: var(--text-color);
-      transition: background-color 0.3s, color 0.3s;
+      transition: background-color var(--transition-speed), color var(--transition-speed);
     }
 
     .nav-bar {
       background-color: var(--nav-bg);
-      padding: 12px;
+      padding: 16px;
       display: flex;
       justify-content: center;
-      gap: 12px;
+      gap: 16px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 
     .nav-bar button {
       background: none;
       color: var(--nav-text);
       border: none;
-      padding: 12px 24px;
+      padding: 12px 20px;
       cursor: pointer;
-      font-size: 18px;
-      border-radius: 6px;
-      transition: background-color 0.3s;
+      font-size: 16px;
+      border-radius: var(--border-radius);
+      transition: background-color var(--transition-speed);
     }
 
     .nav-bar button:hover {
@@ -70,15 +87,15 @@
     .section {
       display: none;
       padding: 24px;
-      max-width: 500px;
-      margin: auto;
+      max-width: 600px;
+      margin: 20px auto;
       text-align: left;
       background: var(--input-bg);
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: var(--border-radius);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       opacity: 0;
       transform: translateX(50px);
-      transition: transform 0.5s, opacity 0.5s;
+      transition: transform var(--transition-speed), opacity var(--transition-speed);
     }
 
     #home {
@@ -119,7 +136,7 @@
       right: 0;
       bottom: 0;
       background-color: #ccc;
-      transition: 0.4s;
+      transition: background-color var(--transition-speed);
       border-radius: 25px;
     }
 
@@ -131,7 +148,7 @@
       left: 4px;
       bottom: 4px;
       background-color: white;
-      transition: 0.4s;
+      transition: transform var(--transition-speed);
       border-radius: 50%;
     }
 
@@ -149,36 +166,16 @@
       right: 20px;
       background: var(--button-bg);
       color: white;
-      padding: 10px 20px;
-      border-radius: 5px;
+      padding: 12px 20px;
+      border-radius: var(--border-radius);
       display: none;
-      transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+      transition: opacity var(--transition-speed), transform var(--transition-speed);
       transform: translateY(30px);
     }
 
     .notification.show {
       display: block;
       transform: translateY(0);
-    }
-
-    .notification:hover {
-      background-color: var(--button-hover);
-    }
-
-    .notification-btn {
-      background-color: var(--notification-btn-bg);
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 16px;
-      transition: background-color 0.3s, transform 0.2s;
-    }
-
-    .notification-btn:hover {
-      background-color: var(--notification-btn-hover);
-      transform: scale(1.05);
     }
   </style>
 </head>
@@ -190,8 +187,19 @@
     <button onclick="showSection('settings')">Settings</button>
   </div>
 
-  <div id="home" class="section"> <h1>Welcome to Coding Hut</h1> </div>
-
+  <div id="home" class="section"> 
+    <h1>Welcome to Coding Hut</h1>
+    <p>The best coding shop of Scratch</p> 
+  </div>
+  <div id='ordering' class='section'>
+    <h1>Coding Hut Orders</h1>
+  </div>
+  <div id='rules' class='section'>
+    <h1>Rules:</h1>
+    <ol>
+      <li>Be respectful to customers and employees.</li>
+    </ol>
+  </div>
   <div id="settings" class="section" style="display:none;">
     <h2>Settings</h2>
     <div class="settings">
@@ -204,7 +212,14 @@
       </label>
       <label>
         <span>Enable Notifications</span>
-        <button class="notification-btn" onclick="enableNotifications()">Turn On</button>
+        <div class="toggle-switch">
+          <input type="checkbox" id="notificationToggle" onchange="toggleNotifications()">
+          <span class="slider"></span>
+        </div>
+      </label>
+      <label>
+        <span>Custom Theme</span>
+        <input type="color" id="customColorPicker" onchange="changeCustomTheme()" />
       </label>
     </div>
   </div>
@@ -228,15 +243,22 @@
 
     function toggleDarkMode() {
       document.body.classList.toggle('dark-mode');
-      document.getElementById('darkModeToggle').checked = document.body.classList.contains('dark-mode');
     }
 
-    function enableNotifications() {
-      let notification = document.getElementById('notification');
-      notification.classList.add('show');
-      setTimeout(() => {
-        notification.classList.remove('show');
-      }, 2000);
+    function toggleNotifications() {
+      const notification = document.getElementById('notification');
+      const isEnabled = document.getElementById('notificationToggle').checked;
+      if (isEnabled) {
+        notification.classList.add('show');
+        setTimeout(() => {
+          notification.classList.remove('show');
+        }, 2000);
+      }
+    }
+
+    function changeCustomTheme() {
+      const color = document.getElementById('customColorPicker').value;
+      document.documentElement.style.setProperty('--bg-color', color);
     }
   </script>
 </body>
